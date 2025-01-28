@@ -26,6 +26,9 @@ export default function Layout() {
           tabBarIcon: ({ color, size }) => <Ionicons name="information-circle" size={size} color={color} />,
         }}
       />
+      <Tabs.Screen name="index" options={{ href: null }} />
+      <Tabs.Screen name="+not-found" options={{ href: null }} />
     </Tabs>
   );
 }
+{/* <Tabs.Screen name="courses/strategic-management" options={{ href: null }} /> */}
