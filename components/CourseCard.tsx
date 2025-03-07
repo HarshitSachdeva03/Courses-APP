@@ -1,34 +1,27 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { ProgressBar } from "react-native-paper";
 
 interface CourseCardProps {
   title: string;
-  category: string;
-  chapters: number;
-  duration: number;
-  progress: number;
+  description: string;
+  chapterCount: number;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ title, category, chapters, duration, progress }) => {
+const CourseCard: React.FC<CourseCardProps> = ({ title, description, chapterCount }) => {
   return (
     <View style={styles.card}>
-      <Text style={styles.category}>{category}</Text>
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.details}>{`${chapters} Chapters • ${duration} Hours`}</Text>
-      <ProgressBar progress={progress / 100} color="#007AFF" style={styles.progressBar} />
-      <Text style={styles.progressText}>{`${progress}% Complete`}</Text>
+      <Text style={styles.description}>{description}</Text>
+      <Text style={styles.chapterCount}>{`${chapterCount} Chapters`}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  card: { padding: 16, margin: 10, backgroundColor: "#fff", borderRadius: 10 },
-  category: { fontSize: 12, color: "gray", marginBottom: 5 },
+  card: { padding: 16, marginVertical: 10, backgroundColor: "#fff", borderRadius: 10, elevation: 3 },
   title: { fontSize: 18, fontWeight: "bold" },
-  details: { fontSize: 14, color: "gray", marginVertical: 5 },
-  progressBar: { height: 6, borderRadius: 5, marginTop: 5 },
-  progressText: { fontSize: 12, color: "gray", marginTop: 5 },
+  description: { fontSize: 14, color: "gray", marginVertical: 5 },
+  chapterCount: { fontSize: 14, fontWeight: "bold", color: "#007AFF" },
 });
 
 export default CourseCard;
