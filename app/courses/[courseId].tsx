@@ -38,9 +38,14 @@ export default function CourseChaptersScreen() {
         data={chapters}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity
+            <TouchableOpacity
             style={styles.chapterCard}
-            onPress={() => router.push(`/courses/${courseId}/chapters/${item.id}`)}
+            onPress={() =>
+              router.push({
+                pathname: `/courses/${courseId}/chapters/${item.id}`,
+                params: { chapterTitle: item.title }, // ✅ Pass chapter title
+              })
+            }
           >
             <Text style={styles.chapterTitle}>{item.title}</Text>
           </TouchableOpacity>

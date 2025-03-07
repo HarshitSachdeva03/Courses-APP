@@ -1,10 +1,10 @@
 import { Tabs } from "expo-router";
-import { View, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Layout() {
   return (
     <Tabs>
+      {/* ✅ Home Tab */}
       <Tabs.Screen
         name="home"
         options={{
@@ -12,24 +12,30 @@ export default function Layout() {
           tabBarIcon: ({ color, size }) => <Ionicons name="home" size={size} color={color} />,
         }}
       />
+      
+      {/* ✅ Courses Tab */}
       <Tabs.Screen
         name="courses"
         options={{
-          // title: "Courses",
-          headerShown:false,
+          title: "",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => <Ionicons name="book" size={size} color={color} />,
         }}
       />
+
+      {/* ✅ Profile Tab */}
       <Tabs.Screen
-        name="about"
+        name="profile"
         options={{
-          title: "About Us",
-          tabBarIcon: ({ color, size }) => <Ionicons name="information-circle" size={size} color={color} />,
+          title: "Profile",
+          tabBarIcon: ({ color, size }) => <Ionicons name="person" size={size} color={color} />,
         }}
       />
+  {/* ❌ Explicitly Hide Unwanted Pages */}
+      <Tabs.Screen name="about" options={{ href: null }} />
+      <Tabs.Screen name="auth/login" options={{ href: null }} />
+      <Tabs.Screen name="auth/signup" options={{ href: null }} />
       <Tabs.Screen name="index" options={{ href: null }} />
-      <Tabs.Screen name="+not-found" options={{ href: null }} />
     </Tabs>
   );
 }
-{/* <Tabs.Screen name="courses/strategic-management" options={{ href: null }} /> */}
